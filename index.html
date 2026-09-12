@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Me amas?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffe6e9;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #ff4d6d;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+        }
+
+        button {
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        #btn-si {
+            background-color: #ff4d6d;
+            color: white;
+        }
+
+        #btn-si:hover {
+            transform: scale(1.1);
+            background-color: #ff758f;
+        }
+
+        #btn-no {
+            background-color: #808080;
+            color: white;
+            position: absolute;
+            left: 120px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 id="pregunta">¿Me amas? ❤️</h1>
+        <div class="buttons">
+            <button id="btn-si" onclick="aceptar()">¡Sí! 💕</button>
+            <button id="btn-no" onmouseover="moverBoton()">No 💔</button>
+        </div>
+    </div>
+
+    <script>
+        function moverBoton() {
+            const btnNo = document.getElementById('btn-no');
+            // Calcula posiciones aleatorias dentro de la pantalla
+            const x = Math.random() * (window.innerWidth - btnNo.offsetWidth - 100);
+            const y = Math.random() * (window.innerHeight - btnNo.offsetHeight - 100);
+            
+            btnNo.style.position = 'fixed';
+            btnNo.style.left = `${x}px`;
+            btnNo.style.top = `${y}px`;
+        }
+
+        function aceptar() {
+            document.getElementById('pregunta').innerText = "¡Sabía que sí! 🥰❤️";
+            document.querySelector('.buttons').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
